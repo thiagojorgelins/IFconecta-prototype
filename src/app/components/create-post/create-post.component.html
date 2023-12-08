@@ -1,0 +1,86 @@
+<div class="form-container has-background-white-ter has-text-light p-6">
+    <form (ngSubmit)="submit()" [formGroup]="createPost" #formDir="ngForm">
+        <div class="field">
+            <div class="control">
+                <label for="title" class="label"><h2>Titulo</h2></label>
+                <input class="input is-large" type="text" placeholder="Titulo do Post" formControlName="title"
+                    id="title" required />
+                <div *ngIf="title.invalid && formDir.submitted" class="form_error">
+                    <small *ngIf="title.errors">
+                        Insira um titulo
+                        <fa-icon [icon]="faCircleExclamation"></fa-icon>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="select">
+                <select formControlName="category" required>
+                    <option value="" [selected]="true" disabled>
+                        Selecione a categoria
+                    </option>
+                    <option *ngFor="let categoria of categorias" [value]="categoria">
+                        {{ categoria | categoryTranslate }}
+                    </option>
+                </select>
+                <div *ngIf="category && formDir.submitted" class="form_error">
+                    <small *ngIf="category.errors">
+                        Selecione uma categoria
+                        <fa-icon [icon]="faCircleExclamation"></fa-icon>
+                    </small>
+                </div>
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <div class="pt-4">
+                    <p>Opções do Markdown:</p>
+                    <button type="button" class="p-1">
+                        <fa-icon [icon]="faBold"></fa-icon>
+                    </button>
+                    <button type="button" class="p-1">
+                        <fa-icon [icon]="faItalic"></fa-icon>
+                    </button>
+                    <button type="button" class="p-1">
+                        <fa-icon [icon]="faList"></fa-icon>
+                    </button>
+                    <button type="button" class="p-1">
+                        <fa-icon [icon]="faCode"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="control pt-4">
+                <label for=""><h2>Conteudo do Post</h2></label>
+                <textarea class="textarea is-large" placeholder="Conteúdo do Post" formControlName="content"></textarea>
+            </div>
+            <div *ngIf="content.invalid && formDir.submitted" class="form_error">
+                <small *ngIf="content.errors">
+                    O conteudo do post é obrigatório!
+                    <fa-icon [icon]="faCircleExclamation"></fa-icon>
+                </small>
+            </div>
+        </div>
+        <div class="control">
+            <div class="file">
+                <label class="file-label">
+                    <input class="file-input" type="file" formControlName="postImage" />
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <fa-icon [icon]="faUpload"></fa-icon>
+                        </span>
+                        <span class="file-label">Imagem do Post</span>
+                    </span>
+                </label>
+            </div>
+        </div>
+        <!-- <div *ngIf="postImage && formDir.submitted" class="form_error">
+            <small *ngIf="postImage.errors">
+                A imagem é obrigatória!
+                <fa-icon [icon]="faCircleExclamation"></fa-icon>
+            </small>
+        </div> -->
+        <div class="buttons are-medium pt-3">
+            <input type="submit" class="button is-link" value="Criar Post" />
+        </div>
+    </form>
+</div>

@@ -1,0 +1,173 @@
+@import 'variables.scss';
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  min-height: 80vh;
+  background-image: linear-gradient(to bottom, $gray, $black);
+  padding: 5rem 2rem;
+
+  .form_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: .8rem;
+
+    min-width: 20%;
+
+    border-radius: .6rem;
+
+    padding: 2rem;
+    background-color: rgb(255 255 255 / .9);
+
+    animation: glowUp 2s infinite ease-in-out;
+
+    .form_title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .2rem;
+
+      > fa-icon {
+        font-size: 2.4rem;
+        color: $black;
+      }
+
+      > h2 {
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: $gray;
+      }
+      > span {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: $black;
+      }
+    }
+
+    .login_form {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 1rem;
+      width: 100%;
+      gap: 1.2rem;
+
+      .input_section {
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        flex-direction: column;
+        gap: .4rem;
+
+        width: 100%;
+
+        > label {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: $black;
+
+          fa-icon {
+            margin-left: .4rem;
+          }
+        }
+
+        .form_input {
+          width: 100%;
+          border: none;
+          border-bottom: .25rem solid $gray;
+          color: $black;
+          background-color: transparent;
+          font-size: 1.2rem;
+          font-weight: 400;
+          outline: none;
+        }
+
+        
+
+        .passwordDiv {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          position: relative;
+
+          .eyeBtn {
+            position: absolute;
+            right: 0;
+            width: 10%;
+            height: 100%;
+            bottom: 20%;
+            cursor: pointer;
+
+            > fa-icon {
+              font-size: 1.2rem;
+              color: $black;
+            }
+          }
+        }
+      }
+
+      .submitBtn {
+        width: 100%;
+        cursor: pointer;
+        padding: .6rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        box-shadow: 0 .2rem .8rem rgb(0 0 0 / .5);
+        border-radius: .4rem;
+        border: none;
+        outline: none;
+        background-color: $white;
+        transition: all 400ms;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+
+    .register_paragraph {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      color: $black;
+
+      > a {
+        color: $blue;
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+@keyframes glowUp {
+  0% {
+    box-shadow: 0 .4rem 1.4rem rgb(255 255 255 / .15);
+  }
+
+  25% {
+    box-shadow: 0 .4rem 1.8rem rgb(255 255 255 / .25);
+  }
+
+  50% {
+    box-shadow: 0 .4rem 2rem rgb(255 255 255 / .55);
+  }
+
+  75% {
+    box-shadow: 0 .4rem 1.8rem rgb(255 255 255 / .25);
+  }
+
+  100% {
+    box-shadow: 0 .4rem 1.4rem rgb(255 255 255 / .15);
+  }
+}

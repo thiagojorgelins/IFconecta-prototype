@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+:has(.post:hover) .post:not(:hover) {
+  transform: scale(0.95);
+  filter: grayscale(1);
+}
+
+.block:not(:last-child) {
+  margin-bottom: 1.5rem;
+}
+
+.form_error {
+  font-weight: 500;
+  font-size: .9rem;
+  color: rgb(201, 43, 43);
+
+  > fa-icon {
+    margin-left: .3rem;
+  }
+
+  animation: shake 400ms ease-in-out 1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-0.5rem);
+  }
+  50% {
+    transform: translateX(0.5rem);
+  }
+  75% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes load {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: .2;
+  }
+  to {
+    opacity: 1;
+  }
+}

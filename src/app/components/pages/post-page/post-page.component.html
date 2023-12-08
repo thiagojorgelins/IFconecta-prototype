@@ -1,0 +1,75 @@
+<main>
+  <div class="post_wrapper" *ngIf="post$ | async as post; else loadingTemplate">
+    <section class="post_info">
+      <h1>{{ post.title }}</h1>
+
+      <div class="content">
+
+        <div class="section_top">
+
+          <div class="user_info">
+            <fa-icon [icon]="faUser" />
+            <span>{{ post.author.name }}</span>
+          </div>
+
+          <div class="post_category" [style.backgroundColor]="post.category | categoryColor">
+            <span>{{ post.category | categoryTranslate }}</span>
+          </div>
+
+        </div>
+
+        <div class="section_image">
+          <img src="{{ post.postImage }}" alt="Imagem do Post">
+        </div>
+
+        <div class="section_bottom">
+          <div class="post_views">
+            <fa-icon [icon]="faEye" />
+            <span>{{ post.postViews }} Views</span>
+          </div>
+
+          <div class="post_date">
+            <fa-icon [icon]="faCalendarPlus" />
+            <span>Criado {{ post.createdAt | date:'dd/MM/YYYY' }}</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+    <section class="post_content">
+      <p>{{ post.content }}</p>
+    </section>
+    <section class="post_comments" *ngIf="postComments$ | async as comments">
+      <div class="comments_title">
+        <h2>Comentários</h2>
+        <fa-icon [icon]="faComments" />
+      </div>
+      <div
+        *ngFor="let comment of comments"
+        class="comment"
+      >
+        <div class="comment_info">
+          <span class="comment_user">
+            <fa-icon [icon]="faUser" />
+            {{ comment.creator.name }}
+            #{{ comment.commentId }}
+          </span>
+          <span class="comment_date">
+            <fa-icon [icon]="faCalendarPlus" />
+            {{ comment.createdAt | date:'dd/MM/YYYY' }}
+          </span>
+        </div>
+
+        <div class="comment_content">
+          <p>{{ comment.content }}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+  <ng-template #loadingTemplate>
+    <div class="loading_wrapper">
+      <span class="loading_spinner"></span>
+    </div>
+  </ng-template>
+</main>

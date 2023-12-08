@@ -1,0 +1,46 @@
+@import 'variables.scss';
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: $black;
+
+  border-bottom: .2rem solid $white;
+  padding: 1rem 6rem;
+
+  a {
+    color: $white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .4rem;
+
+    border: none;
+    cursor: pointer;
+    background-color: $blue;
+    color: $white;
+    transition: all 500ms;
+    padding: .8rem 1.2rem;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    border-radius: .4rem;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem 2rem;
+  }
+}

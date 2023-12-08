@@ -1,0 +1,31 @@
+<main>
+  <section class="actions_section">
+    <button id="filterButton" class="button">
+      <span>Filtrar</span>
+      <fa-icon [icon]="faChevronDown"></fa-icon>
+    </button>
+    <div class="search_div">
+      <input type="search" placeholder="Pesquise aqui...">
+      <button id="searchButton">
+        <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
+      </button>
+    </div>
+    <button id="createButton" class="button" (click)="redirectCreatePost()">
+      <span>Criar</span>
+      <fa-icon [icon]="faSquarePlus"></fa-icon>
+    </button>
+  </section>
+  <section class="posts mt-2">
+    <div *ngIf="!posts$">
+      <h1>Nenhuma Postagem no momento! :(</h1>
+    </div>
+    <div class="columns is-multiline px-6" *ngIf="posts$ | async as posts">
+      <div
+        *ngFor="let post of posts"
+        class="column is-half-tablet is-one-third-desktop is-one-quarter-fullhd"
+      >
+        <app-post [post]="post"></app-post>
+      </div>
+    </div>
+  </section>
+</main>

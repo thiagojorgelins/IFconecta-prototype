@@ -1,0 +1,152 @@
+<main>
+  <section
+    class="form_wrapper"
+  >
+
+    <div
+      class="form_title"
+    >
+      <fa-icon [icon]="faChampagneGlasses" />
+      <h2>Crie sua conta!</h2>
+    </div>
+
+    <form
+      [formGroup]="registerForm"
+      #formDir="ngForm"
+      (ngSubmit)="submitDetails()"
+      class="register_form"
+    >
+
+      <section class="input_section">
+
+        <label for="name">
+          Nome de usuário
+          <fa-icon [icon]="faEnvelope"/>
+        </label>
+
+        <input
+          type="text"
+          formControlName="name"
+          class="form_input"
+          id="name_input"
+          placeholder="Nome de usuário"
+        />
+
+        <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="name.errors">
+            Insira um nome de no min. 8 e no max. 20 caracteres!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <section class="input_section">
+
+        <label for="register_email_input">
+          Email
+          <fa-icon [icon]="faEnvelope"/>
+        </label>
+
+        <input
+          type="text"
+          formControlName="email"
+          class="form_input"
+          id="register_email_input"
+          placeholder="email@exemplo.com"
+        />
+
+        <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="email.errors">
+            Insira um e-mail válido!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <section class="input_section">
+
+        <label for="password">
+          Senha
+          <fa-icon [icon]="faKey"/>
+        </label>
+
+        <div class="passwordDiv">
+          <input
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            formControlName="password"
+            class="form_input"
+            id="register_password_input"
+            placeholder="Senha"
+          />
+          <div
+            (click)="changePassword()"
+            class="eyeBtn"
+          >
+            <fa-icon
+            [icon]="isPasswordVisible ? faEyeSlash : faEye"
+            />
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="password.errors">
+            Insira uma senha de no min. 8 caracteres!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <section class="input_section">
+
+        <label for="register_confirm_password">
+          Confirme sua senha
+          <fa-icon [icon]="faKey"/>
+        </label>
+
+        <div class="passwordDiv">
+          <input
+            [type]="isConfirmPasswordVisible ? 'text' : 'password'"
+            formControlName="confirm_password"
+            class="form_input"
+            id="register_confirm_password"
+            placeholder="Senha"
+          />
+          <div
+            (click)="changeConfirmPassword()"
+            class="eyeBtn"
+          >
+            <fa-icon
+            [icon]="isConfirmPasswordVisible ? faEyeSlash : faEye"
+            />
+          </div>
+        </div>
+
+        <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="password.errors">
+            Insira sua senha novamente!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+        <div *ngIf="mismatchPass" class="form_error">
+          <small>
+            As senhas precisam ser iguais!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <input
+        type="submit"
+        value="Registrar-se"
+        class="submitBtn"
+      />
+
+    </form>
+
+  </section>
+</main>

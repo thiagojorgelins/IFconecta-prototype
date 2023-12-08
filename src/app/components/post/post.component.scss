@@ -1,0 +1,95 @@
+@import 'variables.scss';
+
+.post {
+  background-image: linear-gradient(to top, $gray, $black);
+  border-bottom: .4rem solid $light-gray;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: .8rem;
+  width: 100%;
+  box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .6);
+  padding: 1.4rem;
+  border-radius: .4rem;
+
+  transition: all 500ms;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: 16rem;
+    object-fit: cover;
+    box-shadow: 0 .2rem .6rem rgb(0 0 0 / .5);
+    border-radius: .2rem;
+    aspect-ratio: 1;
+    filter: brightness(80%);
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: $white;
+    align-self: flex-start;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 1rem;
+    color: $white;
+  }
+
+  fa-icon {
+    color: $light-gray;
+    margin-right: .2rem;
+  }
+
+  .post_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .4rem;
+  }
+
+  .post_section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .post_category {
+    padding: .2rem .6rem;
+    border-radius: .4rem;
+    border: .1em solid $white;
+    font-family: monospace;
+    font-weight: 600;
+    box-shadow: 0 .2rem .6rem rgb(0 0 0 / .5);
+  }
+
+  .post_subtitle {
+    color: $light-gray;
+    font-weight: 500;
+    font-style: italic;
+    font-size: .9rem;
+    font-family: monospace;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .post_views {
+    > fa-icon {
+      color: $blue;
+    }
+  }
+
+}

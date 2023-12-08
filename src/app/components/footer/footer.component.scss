@@ -1,0 +1,30 @@
+@import 'variables.scss';
+
+footer {
+  background-color: $black;
+  border-top: .2rem solid $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .6rem;
+  padding: 2.2rem 0;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    color: $white;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color .3s ease-in-out;
+
+    span {
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $blue;
+    }
+  }
+}

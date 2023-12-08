@@ -1,0 +1,93 @@
+<main>
+  <section
+    class="form_wrapper"
+  >
+
+    <div
+      class="form_title"
+    >
+      <fa-icon [icon]="faDoorOpen" />
+      <h2>Bem vindo ao</h2>
+      <span>techconecta!</span>
+    </div>
+
+    <form
+      [formGroup]="loginForm"
+      #formDir="ngForm"
+      (ngSubmit)="login()"
+      class="login_form"
+    >
+
+      <section class="input_section">
+
+        <label for="email">
+          Email
+          <fa-icon [icon]="faEnvelope"/>
+        </label>
+
+        <input
+          type="text"
+          formControlName="email"
+          class="form_input"
+          id="email_input"
+          autocomplete="email"
+        />
+
+        <div *ngIf="loginForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="email.errors">
+            Insira um e-mail válido!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <section class="input_section">
+
+        <label for="password">
+          Senha
+          <fa-icon [icon]="faKey"/>
+        </label>
+
+        <div class="passwordDiv">
+          <input
+            [type]="isPasswordVisible ? 'text' : 'password'"
+            formControlName="password"
+            class="form_input"
+            id="password_input"
+            autocomplete="current-password"
+          />
+          <div
+            (click)="changePassword()"
+            class="eyeBtn"
+          >
+            <fa-icon
+            [icon]="isPasswordVisible ? faEyeSlash : faEye"
+            />
+          </div>
+        </div>
+
+        <div *ngIf="loginForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="password.errors">
+            Insira uma senha!
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
+
+      </section>
+
+      <input
+        type="submit"
+        value="Logar"
+        class="submitBtn"
+      />
+
+    </form>
+
+    <div class="register_paragraph">
+      <p>Não possui uma conta?</p>
+      <a routerLink="/register">Registre-se!</a>
+    </div>
+
+  </section>
+</main>

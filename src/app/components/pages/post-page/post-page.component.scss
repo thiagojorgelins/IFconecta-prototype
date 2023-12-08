@@ -1,0 +1,311 @@
+@import 'variables.scss';
+
+main {
+  min-width: 100vw;
+  min-height: 80vh;
+  padding: 4rem 2rem;
+  background-image: linear-gradient(to bottom, $gray, $black);
+
+  .post_wrapper {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+
+    animation: fadeOut 400ms ease-in-out;
+
+    .post_info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+
+      > h1 {
+        font-size: clamp(1.5rem, 1.125rem + 0.9375vw, 2.25rem);
+        text-align: center;
+        color: $white;
+        font-weight: 600;
+      }
+
+      .content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: .6rem;
+        width: 100%;
+        background-color: $gray;
+        box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .5);
+        border-radius: .4rem;
+        padding: 1rem;
+
+        @media (max-width: 600px) {
+          width: 100%;
+        }
+
+        @media (min-width: 601px) {
+          width: 70%;
+        }
+
+        @media (min-width: 1200px) {
+          width: 50%;
+        }
+
+
+        @media (min-width: 1600px) {
+          width: 40%;
+        }
+
+        .section_top {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 1rem;
+          width: 100%;
+
+          .user_info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .6rem;
+            padding: .4rem 1rem;
+            border-radius: .4rem;
+            background-color: $white;
+            box-shadow: 0 .4rem .6rem rgb(0 0 0 / .5);
+
+            > span {
+              color: $black;
+              font-weight: 500;
+            }
+
+            > fa-icon {
+              font-size: 1.2rem;
+              color: $black;
+            }
+
+            @media (max-width: 600px) {
+              > fa-icon, > span {
+                  font-size: .9rem;
+                }
+            }
+          }
+
+          .post_category {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: .4rem 1rem;
+            border-radius: .4rem;
+            border: .1rem solid $white;
+            box-shadow: 0 .4rem .6rem rgb(0 0 0 / .5);
+
+            > span {
+              color: $white;
+              font-weight: 500;
+              font-size: 1.2rem;
+            }
+
+            @media (max-width: 600px) {
+              > span {
+                font-size: .9rem;
+              }
+            }
+          }
+        }
+
+        .section_image {
+          width: 100%;
+
+          > img {
+            min-width: 100%;
+            min-height: 20rem;
+            border-bottom: .4rem solid $light-gray;
+            box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .5);
+            border-radius: .4rem;
+            object-fit: cover;
+          }
+        }
+
+        .section_bottom {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 1rem;
+          width: 100%;
+
+          .post_views, .post_date {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .4rem;
+            background-color: $white;
+            padding: .4rem 1rem;
+            border-radius: .4rem;
+            box-shadow: 0 .4rem .8rem rgb(0 0 0 / .4);
+
+            > span, fa-icon {
+              color: $black;
+              font-weight: 500;
+              font-size: 1rem;
+            }
+
+            @media (max-width: 600px) {
+              > fa-icon, > span {
+                  font-size: .8rem;
+                }
+            }
+          }
+        }
+      }
+
+    }
+
+    .post_content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      background-color: $gray;
+      box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .5);
+      border-radius: .4rem;
+      padding: 1rem;
+
+
+      > p {
+        text-align: justify;
+        color: $white;
+        font-family: monospace;
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+
+      @media (min-width: 601px) {
+        width: 70%;
+      }
+
+      @media (min-width: 1200px) {
+        width: 50%;
+      }
+
+
+      @media (min-width: 1600px) {
+        width: 40%;
+      }
+    }
+
+    .post_comments {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+
+      @media (max-width: 600px) {
+        width: 100%;
+      }
+
+      @media (min-width: 601px) {
+        width: 70%;
+      }
+
+      @media (min-width: 1200px) {
+        width: 50%;
+      }
+
+
+      @media (min-width: 1600px) {
+        width: 40%;
+      }
+
+      .comments_title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .8rem;
+
+        > h2, fa-icon {
+          color: $white;
+          font-size: 1.4rem;
+          font-weight: 500;
+
+          @media (max-width: 600px) {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      .comment {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        gap: .4rem;
+
+        background-color: $white;
+        border-radius: .4rem;
+        box-shadow: 0 .4rem 1rem rgb(0 0 0 / .5);
+        width: 100%;
+        margin-bottom: .6rem;
+        padding: 1rem;
+
+        .comment_info {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          .comment_user, .comment_date {
+            color: $black;
+            font-weight: 600;
+            font-family: monospace;
+
+            > fa-icon {
+              margin-right: .2rem;
+            }
+          }
+        }
+
+        .comment_content {
+          width: 100%;
+
+          > p {
+            font-weight: 400;
+            font-family: monospace;
+            text-align: justify;
+            color: $black;
+          }
+        }
+      }
+    }
+
+  }
+
+  .loading_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loading_spinner {
+      margin-top: 8rem;
+      height: 6rem;
+      width: 6rem;
+
+      border: .4rem solid $blue;
+      border-top: .4rem solid transparent;
+      border-radius: 50%;
+
+      animation: load 1s infinite ease-in-out;
+    }
+  }
+}

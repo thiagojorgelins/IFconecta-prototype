@@ -1,0 +1,10 @@
+@import "variables.scss";
+
+form-container {
+  min-height: 70vh;
+}
+label > h2{
+  color: $black;
+  font-size: 1.7rem;
+  font-weight: 500;
+}

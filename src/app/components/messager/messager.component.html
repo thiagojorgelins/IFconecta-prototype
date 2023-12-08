@@ -1,0 +1,14 @@
+<div *ngIf="messagerService.alert" class="alert_background">
+  <div class="alert alert_{{ messagerService.alert.type }}">
+    <div class="actions">
+      <button (click)="close()">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+    </div>
+    <div class="alert_icon">
+      <fa-icon [icon]="messagerService.alert.icon"></fa-icon>
+    </div>
+    <span class="alert_title">{{ messagerService.alert.title }}</span>
+    <p class="alert_content">{{ messagerService.alert.message }}</p>
+  </div>
+</div>

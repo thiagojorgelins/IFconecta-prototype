@@ -1,0 +1,29 @@
+<div class="post" (click)="pageRedirect(post.id)">
+  <img src="{{ post.postImage }}" alt="Imagem do Post">
+  <h2>{{ post.title }}</h2>
+  <div class="post_info">
+
+    <div class="post_section">
+      <span class="post_date">
+        <fa-icon [icon]="faCalendarDays"></fa-icon>
+        {{ post.createdAt | date:'dd/MM/yyyy'}}
+      </span>
+      <span class="post_views">
+        <fa-icon [icon]="faEye"></fa-icon>
+        {{ post.postViews }}
+      </span>
+    </div>
+
+    <div class="post_section">
+      <span class="post_owner" *ngIf="post.author">
+        <fa-icon [icon]="faUser"></fa-icon>
+        {{ post.author.name}}
+      </span>
+      <span class="post_category" [style.backgroundColor]="post.category | categoryColor">
+        {{ post.category | categoryTranslate }}
+      </span>
+    </div>
+  </div>
+
+  <p class="post_subtitle">{{ post.subtitle }}</p>
+</div>

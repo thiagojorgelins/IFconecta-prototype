@@ -1,0 +1,136 @@
+@import 'variables.scss';
+
+main {
+  min-height: 80vh;
+  width: 100vw;
+  background-image: linear-gradient(to bottom, $gray, $black);
+  padding: 2rem;
+
+  .actions_section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 4rem;
+
+    @media (max-width: 800px) {
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      padding: 0 4rem;
+      gap: 1rem;
+    }
+
+    @media (max-width: 600px) {
+      padding: 0 1rem;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .4rem;
+      cursor: pointer;
+      border-radius: .4rem;
+      font-size: 1.2rem;
+      font-weight: 500;
+      padding: .6rem 1.2rem;
+    }
+
+    .search_div {
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40%;
+      box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .7);
+
+      @media (max-width: 800px) {
+        min-width: 100%;
+        order: 1;
+      }
+
+      input[type="search"] {
+        font-size: 1.2rem;
+        padding: .6rem 1.2rem;
+        border-radius: .4rem 0 0 .4rem;
+        background-color: $black;
+        border: .1em solid $white;
+        border-right: none;
+        outline: none;
+        color: $white;
+        min-width: 80%;
+        height: 100%;
+
+        @media (max-width: 1200px) {
+          font-size: .9rem;
+        }
+
+        &::placeholder {
+          color: $white;
+          opacity: .6;
+          font-style: italic;
+          font-weight: 500;
+        }
+      }
+
+      #searchButton {
+        border-radius: 0 .4rem .4rem 0;
+        height: 100%;
+        width: 20%;
+        font-size: 1.2rem;
+        padding: .6rem 1.2rem;
+        border: .1em solid $white;
+        border-left: none;
+        background-color: $black;
+        color: $white;
+        cursor: pointer;
+
+        @media (max-width: 1200px) {
+          font-size: .9rem;
+        }
+      }
+    }
+
+    #filterButton {
+      border: .1em solid $white;
+      background-color: $black;
+      font-size: 1rem;
+      color: $white;
+      box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .7);
+
+      fa-icon {
+        color: $white;
+      }
+    }
+
+    #createButton {
+      color: $black;
+      background-color: $white;
+      border: none;
+      font-size: 1rem;
+      text-transform: uppercase;
+      transition: all 400ms;
+      box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .7);
+
+      &:hover {
+        background-color: rgb(0 0 0 / .8);
+        color: $white;
+      }
+    }
+
+  }
+
+  .posts {
+    animation: fadeOut 500ms ease-in-out;
+
+    .columns {
+      margin: 0;
+
+      @media (max-width: 600px) {
+        padding: 0 !important;
+      }
+    }
+  }
+
+
+}
