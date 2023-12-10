@@ -1,5 +1,5 @@
 <div class="post" (click)="pageRedirect(post.id)">
-  <img src="{{ post.postImage }}" alt="Imagem do Post">
+  <img [src]="baseUrl + '/post/images/' + post.postImage" alt="Imagem do Post">
   <h2>{{ post.title }}</h2>
   <div class="post_info">
 

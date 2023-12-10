@@ -14,6 +14,7 @@ import { Comment } from 'src/app/models/Comment.model';
 import { Post } from 'src/app/models/Post.model';
 import { CommentsService } from 'src/app/services/comments.service';
 import { PostService } from 'src/app/services/post.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-post-page',
@@ -22,6 +23,7 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class PostPageComponent implements OnInit {
 
+  baseUrl = environment.baseApiUrl
   post$?: Observable<Post>;
   postComments$?: Observable<Array<Comment>>;
 
