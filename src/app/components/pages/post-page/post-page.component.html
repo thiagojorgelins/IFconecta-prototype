@@ -9,7 +9,7 @@
 
           <div class="user_info">
             <fa-icon [icon]="faUser" />
-            <span>{{ post.author.name }}</span>
+            <span>{{ post.authorName }}</span>
           </div>
 
           <div class="post_category" [style.backgroundColor]="post.category | categoryColor">
@@ -25,7 +25,7 @@
         <div class="section_bottom">
           <div class="post_views">
             <fa-icon [icon]="faEye" />
-            <span>{{ post.postViews }} Views</span>
+            <span>X Views</span>
           </div>
 
           <div class="post_date">
@@ -52,7 +52,7 @@
         <div class="comment_info">
           <span class="comment_user">
             <fa-icon [icon]="faUser" />
-            {{ comment.creator.name }}
+            {{ comment.authorName }}
             #{{ comment.commentId }}
           </span>
           <span class="comment_date">

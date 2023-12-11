@@ -12,8 +12,8 @@ import {
 import { Observable } from 'rxjs';
 import { Comment } from 'src/app/models/Comment.model';
 import { Post } from 'src/app/models/Post.model';
-import { CommentsService } from 'src/app/services/comments.service';
-import { PostService } from 'src/app/services/post.service';
+import { CommentsService } from 'src/app/services/comment/comments.service';
+import { PostService } from 'src/app/services/post/post.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({

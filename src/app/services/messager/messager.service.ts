@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
-import { Alert } from '../models/Alert.model';
+import { Alert } from '../../models/Alert.model';
 
 @Injectable({
   providedIn: 'root'

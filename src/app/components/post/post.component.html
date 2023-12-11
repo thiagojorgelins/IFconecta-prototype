@@ -10,14 +10,14 @@
       </span>
       <span class="post_views">
         <fa-icon [icon]="faEye"></fa-icon>
-        {{ post.postViews }}
+        XXX
       </span>
     </div>
 
     <div class="post_section">
-      <span class="post_owner" *ngIf="post.author">
+      <span class="post_owner" *ngIf="post">
         <fa-icon [icon]="faUser"></fa-icon>
-        {{ post.author.name}}
+        {{ post.authorName }}
       </span>
       <span class="post_category" [style.backgroundColor]="post.category | categoryColor">
         {{ post.category | categoryTranslate }}

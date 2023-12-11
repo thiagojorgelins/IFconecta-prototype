@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IconDefinition, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { MessagerService } from 'src/app/services/messager.service';
+import { MessagerService } from 'src/app/services/messager/messager.service';
 
 @Component({
   selector: 'app-messager',

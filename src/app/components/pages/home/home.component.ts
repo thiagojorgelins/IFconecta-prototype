@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { faChevronDown, faMagnifyingGlass, faSquarePlus, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/Post.model';
-import { PostService } from 'src/app/services/post.service';
+import { PostService } from 'src/app/services/post/post.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Post } from '../models/Post.model';
-import { HttpClient } from '@angular/common/http';
+import { Post } from '../../models/Post.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../models/User.model';
 import { environment } from 'src/environments/environment.development';
 
 @Injectable({
@@ -16,16 +15,16 @@ export class PostService {
     private http: HttpClient,
   ) {}
 
+  createPost(formData: FormData, headers: HttpHeaders): Observable<any>{
+    return this.http.post(`${this.apiURL}/post`, formData, {headers})
+  }
+
   getPosts(): Observable<Array<Post>> {
     return this.http.get<Array<Post>>(`${this.apiURL}/post`);
   }
 
   getPost(id: number): Observable<Post> {
     return this.http.get<Post>(`${this.apiURL}/post/${id}`);
-  }
-
-  getUserById(id: number): Observable<User> {
-    return this.http.get<any>(`${this.apiURL}/user/${id}`)
   }
 
 }

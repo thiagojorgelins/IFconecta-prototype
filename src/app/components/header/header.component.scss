@@ -17,7 +17,23 @@ header {
     font-weight: 500;
   }
 
-  button {
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    fa-icon {
+      color: $white;
+      font-size: 1.5rem;
+    }
+
+    span {
+      color: $white;
+      font-weight: 500;
+      margin-left: .5rem;
+    }
+  }
+
+  .button-style {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -39,7 +55,6 @@ header {
       background-color: $dark-blue;
     }
   }
-
   @media (max-width: 600px) {
     padding: 1rem 2rem;
   }

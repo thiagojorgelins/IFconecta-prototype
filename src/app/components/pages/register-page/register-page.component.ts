@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MessagerService } from 'src/app/services/messager.service';
+import { MessagerService } from 'src/app/services/messager/messager.service';
 import {
   IconDefinition,
   faFolderPlus,
@@ -12,7 +12,7 @@ import {
   faEyeSlash,
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { User } from 'src/app/models/User.model';
 
 @Component({
@@ -55,11 +55,13 @@ export class RegisterPageComponent implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(8),
+        Validators.pattern(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
       ]),
       confirm_password: new FormControl('', [
         Validators.required,
-        Validators.minLength(8)
+        Validators.minLength(8),
+        Validators.pattern(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
       ]),
     })
 
@@ -124,6 +126,7 @@ export class RegisterPageComponent implements OnInit {
   changeConfirmPassword() {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible
   }
+  
   submitDetails() {
     if (this.registerForm.invalid) return;
     const postData = { ...this.registerForm.value };

@@ -1,0 +1,103 @@
+<form
+  (ngSubmit)="submit()"
+  class="form-container has-text-light p-6"
+  [formGroup]="postPost"
+  #formDir="ngForm"
+>
+  <div class="field">
+    <div class="control">
+      <label for="title" class="label"><h2>Titulo</h2></label>
+      <input
+        class="input is-large"
+        type="text"
+        placeholder="Titulo do Post"
+        formControlName="title"
+        id="title"
+        required
+      />
+      <div *ngIf="title.invalid && formDir.submitted" class="form_error">
+        <small *ngIf="title.errors">
+          Insira um titulo
+          <fa-icon [icon]="faCircleExclamation"></fa-icon>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control">
+      <label for="subtitulo" class="label">
+        <h2>Subtitulo</h2>
+      </label>
+      <input
+        class="input is-large"
+        type="text"
+        placeholder="Subtitulo do Post"
+        formControlName="subtitle"
+        id="subtitle"
+        required
+      />
+      <div *ngIf="subtitle.invalid && formDir.submitted" class="form_error">
+        <small *ngIf="subtitle.errors">
+          Insira um subtitulo
+          <fa-icon [icon]="faCircleExclamation"></fa-icon>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="select">
+      <select formControlName="category" required>
+        <option value="" [selected]="true" disabled>
+          Selecione a categoria
+        </option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category | categoryTranslate }}
+        </option>
+      </select>
+      <div *ngIf="category && formDir.submitted" class="form_error">
+        <small *ngIf="category.errors">
+          Selecione uma categoria
+          <fa-icon [icon]="faCircleExclamation"></fa-icon>
+        </small>
+      </div>
+    </div>
+  </div>
+  <div class="field">
+    <div class="control pt-4">
+      <label for=""><h2>Conteudo do Post</h2></label>
+      <textarea
+        class="textarea is-large"
+        placeholder="Conteúdo do Post"
+        formControlName="content"
+      ></textarea>
+    </div>
+    <div *ngIf="content.invalid && formDir.submitted" class="form_error">
+      <small *ngIf="content.errors">
+        O conteudo do post é obrigatório!
+        <fa-icon [icon]="faCircleExclamation"></fa-icon>
+      </small>
+    </div>
+  </div>
+  <div id="file-js-example" class="file has-name">
+    <label class="file-label">
+      <input
+        class="file-input"
+        type="file"
+        #fileInput
+        (change)="onFileSelected($event)"
+      />
+      <span class="file-cta">
+        <span class="file-icon">
+          <fa-icon [icon]="faUpload"></fa-icon>
+        </span>
+        <span class="file-label"> Choose a file… </span>
+      </span>
+      <span class="file-name">
+        {{ selectedFileName }}
+      </span>
+    </label>
+  </div>
+  <div class="buttons are-medium pt-3">
+    <input type="submit" class="button is-link" value="{{ btnSubmit }}" />
+  </div>
+</form>

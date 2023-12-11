@@ -5,7 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/pages/home/home.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
@@ -16,8 +16,9 @@ import { PostPageComponent } from './components/pages/post-page/post-page.compon
 import { LoginPageComponent } from './components/pages/login-page/login-page.component';
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { MessagerComponent } from './components/messager/messager.component';
-import { CreatePostComponent } from './components/create-post/create-post.component';
-import { CRUDUsersComponent } from './components/crud-users/crud-users.component'
+import { CreatePostComponent } from './components/pages/create-post/create-post.component';
+import { CRUDUsersComponent } from './components/crud-users/crud-users.component';
+import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { CRUDUsersComponent } from './components/crud-users/crud-users.component
     RegisterPageComponent,
     MessagerComponent,
     CreatePostComponent,
-    CRUDUsersComponent
+    CRUDUsersComponent,
+    CreatePostFormComponent
   ],
   imports: [
     BrowserModule,

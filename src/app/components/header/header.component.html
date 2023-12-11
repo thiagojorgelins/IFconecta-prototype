@@ -1,7 +1,18 @@
 <header>
-  <a routerLink="/home">IFconecta.</a>
-  <button (click)="loginRedirect()">
-    <span>Login</span>
-    <fa-icon [icon]="faUser"></fa-icon>
-  </button>
+  <a routerLink="/home">techconecta.</a>
+  <ng-container *ngIf="isSign; else loginButton">
+    <div class="user-info" *ngIf="user">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <span class="p-3 has-text-white">{{ user.name }}</span>
+      <button (click)="logout()" class="button-style">
+        <fa-icon [icon]="faLogout"></fa-icon>
+      </button>
+    </div>
+  </ng-container>
+  <ng-template #loginButton>
+    <button (click)="loginRedirect()" class="button-style">
+      <span>Login</span>
+      <fa-icon [icon]="faUser"></fa-icon>
+    </button>
+  </ng-template>
 </header>

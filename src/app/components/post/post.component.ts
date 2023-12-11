@@ -3,7 +3,7 @@ import { Post } from 'src/app/models/Post.model';
 import { IconDefinition, faEye, faCalendarDays, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.development';
-import { UserService } from 'src/app/services/user.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-post',

@@ -92,11 +92,16 @@
 
         <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
           <small *ngIf="password.errors">
-            Insira uma senha de no min. 8 caracteres!
+            A senha deve ter no mín. 8 caracteres, 1 letra maiúscula e 1 número!
             <fa-icon [icon]="faCircleExclamation"></fa-icon>
           </small>
         </div>
-
+        <div *ngIf="registerForm.invalid && formDir.submitted" class="form_error">
+          <small *ngIf="password.errors">
+            
+            <fa-icon [icon]="faCircleExclamation"></fa-icon>
+          </small>
+        </div>
       </section>
 
       <section class="input_section">
