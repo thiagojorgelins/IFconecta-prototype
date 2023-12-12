@@ -1,25 +1,33 @@
 <main>
+  <ng-template #loadingTemplate>
+    <div class="loading_wrapper">
+      <span class="loading_spinner"></span>
+    </div>
+  </ng-template>
   <div class="post_wrapper" *ngIf="post$ | async as post; else loadingTemplate">
     <section class="post_info">
       <h1>{{ post.title }}</h1>
 
       <div class="content">
-
         <div class="section_top">
-
           <div class="user_info">
             <fa-icon [icon]="faUser" />
             <span>{{ post.authorName }}</span>
           </div>
 
-          <div class="post_category" [style.backgroundColor]="post.category | categoryColor">
+          <div
+            class="post_category"
+            [style.backgroundColor]="post.category | categoryColor"
+          >
             <span>{{ post.category | categoryTranslate }}</span>
           </div>
-
         </div>
 
         <div class="section_image">
-          <img [src]="baseUrl + '/post/images/' + post.postImage" alt="Imagem do Post">
+          <img
+            [src]="baseUrl + '/post/images/' + post.postImage"
+            alt="Imagem do Post"
+          />
         </div>
 
         <div class="section_bottom">
@@ -30,34 +38,39 @@
 
           <div class="post_date">
             <fa-icon [icon]="faCalendarPlus" />
-            <span>Criado {{ post.createdAt | date:'dd/MM/YYYY' }}</span>
+            <span>Criado {{ post.createdAt | date : "dd/MM/YYYY" }}</span>
           </div>
         </div>
-
       </div>
-
     </section>
     <section class="post_content">
       <p>{{ post.content }}</p>
     </section>
-    <section class="post_comments" *ngIf="postComments$ | async as comments">
+
+    <section *ngIf="isSign" class="post_comments">
+      <form (ngSubmit)="submit()" [formGroup]="commentForm" #formDir="ngForm" class="create_comment">
+        <textarea class="textarea" placeholder="Escreva um comentário" formControlName="content"></textarea>
+        <div *ngIf="content?.invalid && content?.touched" class="invalid-feedback">
+          O conteúdo do comentário é obrigatório.
+        </div>
+        <input type="submit" class="button is-fullwidth mt-2" value="Enviar comentário"/>
+      </form>
+    </section>
+
+    <section class="post_comments" *ngIf="post.comments">
       <div class="comments_title">
         <h2>Comentários</h2>
         <fa-icon [icon]="faComments" />
       </div>
-      <div
-        *ngFor="let comment of comments"
-        class="comment"
-      >
+      <div *ngFor="let comment of post.comments" class="comment">
         <div class="comment_info">
           <span class="comment_user">
             <fa-icon [icon]="faUser" />
             {{ comment.authorName }}
-            #{{ comment.commentId }}
           </span>
           <span class="comment_date">
             <fa-icon [icon]="faCalendarPlus" />
-            {{ comment.createdAt | date:'dd/MM/YYYY' }}
+            {{ comment.createdAt | date : "dd/MM/YYYY" }}
           </span>
         </div>
 
@@ -67,9 +80,4 @@
       </div>
     </section>
   </div>
-  <ng-template #loadingTemplate>
-    <div class="loading_wrapper">
-      <span class="loading_spinner"></span>
-    </div>
-  </ng-template>
 </main>

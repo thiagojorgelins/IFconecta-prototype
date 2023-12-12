@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
@@ -15,11 +15,8 @@ export class CommentsService {
     private http: HttpClient,
   ) { }
 
-  getComments(): Observable<Array<Comment>> {
-    return this.http.get<Array<Comment>>(`${this.apiUrl}Comments/all`);
+  createComment(postId: number, commentData: Comment, headers: HttpHeaders): Observable<any>{
+    return this.http.post(`${this.apiUrl}/comment/${postId}`, commentData, {headers})
   }
 
-  getCommentByPost(postId: number): Observable<Array<Comment>> {
-    return this.http.get<Array<Comment>>(`${this.apiUrl}Comments/${postId}`);
-  }
 }

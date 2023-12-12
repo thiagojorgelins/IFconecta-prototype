@@ -8,5 +8,5 @@ export interface Post {
   content: string
   postImage: string
   authorId: number
-  comments?: [{text: string, authorName: string}]
+  comments?: [{content: string, authorName: string, createdAt: string}]
 }

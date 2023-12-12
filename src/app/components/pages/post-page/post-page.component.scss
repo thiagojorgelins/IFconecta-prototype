@@ -203,6 +203,16 @@ main {
       }
     }
 
+    .create_comment{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      
+      
+    }
+
     .post_comments {
       display: flex;
       align-items: flex-start;

@@ -1,7 +1,7 @@
 export interface Comment {
-  postId: number
-  commentId: number
-  authorName: string
-  createdAt: string
+  postId?: number
+  commentId?: number
+  authorName?: string
+  createdAt?: string
   content: string
 }
