@@ -1,9 +1,9 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { IconDefinition, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/models/User.model';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -28,6 +28,7 @@ export class HeaderComponent {
   ngOnInit() {
     this.fetchLogin();
   }
+  
   fetchLogin() {
     const token = this.cookieService.get('token')
     if (token) {

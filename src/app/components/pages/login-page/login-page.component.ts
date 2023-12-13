@@ -13,7 +13,7 @@ import {
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 import { UserService } from 'src/app/services/user/user.service';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { User } from 'src/app/models/User.model';
 import { CookieService } from 'ngx-cookie-service'
 

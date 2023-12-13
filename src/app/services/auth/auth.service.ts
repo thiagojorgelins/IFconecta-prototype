@@ -1,7 +1,7 @@
-import { HttpClient, HttpHandler, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { User } from '../models/User.model';
+import { User } from '../../models/User.model';
 import { environment } from 'src/environments/environment.development';
 import { CookieService } from 'ngx-cookie-service';
 
@@ -24,18 +24,6 @@ export class AuthService {
     this.loginSuccessSubject.next()
   }
 
-  intercept(request: HttpRequest<any>, next: HttpHandler) {
-    const token = this.cookieService.get('token');
-    if (token) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
-      });
-    }
-    return next.handle(request);
-  }
-  
   currentUser(): Observable<User> {
     const token = this.cookieService.get('token')
     if (token) {
@@ -47,5 +35,10 @@ export class AuthService {
       return new Observable<User>()
     }
 
+  }
+
+  isLoggedIn(): boolean {
+    const token = this.cookieService.get('token');
+    return !!token;
   }
 }

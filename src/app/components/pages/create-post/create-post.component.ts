@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MessagerService } from 'src/app/services/messager/messager.service';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { PostService } from 'src/app/services/post/post.service';
 import { Post } from 'src/app/models/Post.model';
 import { User } from 'src/app/models/User.model';

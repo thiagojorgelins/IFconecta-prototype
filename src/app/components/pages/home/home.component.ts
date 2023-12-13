@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { Post } from 'src/app/models/Post.model';
 import { PostService } from 'src/app/services/post/post.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth/auth.service';
+import { AuthGuardService } from 'src/app/services/auth/auth-guard.service';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +22,9 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private postService: PostService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+    private authGuard: AuthGuardService
   ) {}
 
   ngOnInit(): void {

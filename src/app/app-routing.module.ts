@@ -6,6 +6,7 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { CreatePostComponent } from './components/pages/create-post/create-post.component';
 import { CRUDUsersComponent } from './components/crud-users/crud-users.component';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,7 +14,7 @@ const routes: Routes = [
   { path: 'posts/:id', component: PostPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
-  { path: 'create-post', component: CreatePostComponent},
+  { path: 'create-post', component: CreatePostComponent, canActivate: [AuthGuardService]},
   { path: 'CRUD-users', component: CRUDUsersComponent}
 ];
 
