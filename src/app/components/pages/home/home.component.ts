@@ -23,20 +23,38 @@ export class HomeComponent implements OnInit {
   constructor(
     private postService: PostService,
     private router: Router,
-    private authService: AuthService,
-    private authGuard: AuthGuardService
   ) {}
 
+  categories: string[] = ['technology', 'travel', 'gastronomy', 'health', 'science', 'fashion', 'sports', 'music', 'business', 'movies', 'culture'];
+  selectedCategory: string | undefined;
+  searchQuery: string = '';
+
   ngOnInit(): void {
+    this.selectedCategory = '';
     this.fetchPosts();
   }
 
   fetchPosts(): void {
-    this.posts$ = this.postService.getPosts();
+    if (this.selectedCategory) {
+      this.posts$ = this.postService.getPostsByCategory(this.selectedCategory);
+    } else {
+      this.posts$ = this.postService.getPosts();
+    }
+  }
+
+  onCategoryChange(): void {
+    this.fetchPosts();
   }
 
   redirectCreatePost() {
-    this.router.navigate(['/create-post'])
+    this.router.navigate(['/create-post']);
   }
 
+  searchPosts(): void {
+    if (this.searchQuery.trim() !== '') {
+      this.posts$ = this.postService.searchPosts(this.searchQuery);
+    } else {
+      this.fetchPosts();
+    }
+  }
 }

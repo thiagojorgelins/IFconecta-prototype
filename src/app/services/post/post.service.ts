@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../../models/Post.model';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment.development';
 
@@ -27,4 +27,12 @@ export class PostService {
     return this.http.get<Post>(`${this.apiURL}/post/${id}`);
   }
 
+  getPostsByCategory(category: string): Observable<Array<Post>> {
+    return this.http.get<Array<Post>>(`${this.apiURL}/post/category/${category}`);
+  }
+
+  searchPosts(query: string): Observable<Array<Post>> {
+    const params = new HttpParams().set('query', query);
+    return this.http.get<Array<Post>>(`${this.apiURL}/post/search/${query}`, { params });
+  }
 }

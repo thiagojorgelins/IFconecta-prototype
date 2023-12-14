@@ -1,11 +1,15 @@
 <main>
   <section class="actions_section">
-    <button id="filterButton" class="button">
-      <span>Filtrar</span>
-      <fa-icon [icon]="faChevronDown"></fa-icon>
-    </button>
+    <div class="select">
+      <select class="has-text-weight-bold" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+        <option value="" class="has-text-weight-bold">Filtrar por categoria</option>
+        <option *ngFor="let category of categories" [value]="category">
+          {{ category | categoryTranslate }}
+        </option>
+      </select>
+    </div>
     <div class="search_div">
-      <input type="search" placeholder="Pesquise aqui...">
+      <input type="search" placeholder="Pesquise aqui..." [(ngModel)]="searchQuery" (input)="searchPosts()">
       <button id="searchButton">
         <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
       </button>
