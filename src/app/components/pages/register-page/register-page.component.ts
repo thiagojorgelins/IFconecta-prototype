@@ -63,6 +63,7 @@ export class RegisterPageComponent implements OnInit {
         Validators.minLength(8),
         Validators.pattern(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/)
       ]),
+      userImage: new FormControl('')
     })
 
     this.confirm_password!.valueChanges.subscribe({
@@ -126,12 +127,21 @@ export class RegisterPageComponent implements OnInit {
   changeConfirmPassword() {
     this.isConfirmPasswordVisible = !this.isConfirmPasswordVisible
   }
-  
+  onImageSelected(event: any): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    this.registerForm.patchValue({
+      userImage: file,
+    });
+    this.registerForm.get('userImage')?.updateValueAndValidity();
+  }
   submitDetails() {
     if (this.registerForm.invalid) return;
-    const postData = { ...this.registerForm.value };
-    delete postData.confirm_password;
-    this.userService.createUser(postData as User).subscribe(
+    const formData = new FormData();
+  formData.append('name', this.name.value);
+  formData.append('email', this.email.value);
+  formData.append('password', this.password.value);
+  formData.append('userImage', this.registerForm.get('userImage')?.value);
+    this.userService.createUser(formData).subscribe(
       response => {
         this.messagerService.addAlert({
           type: 'success',

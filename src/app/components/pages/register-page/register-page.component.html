@@ -142,7 +142,10 @@
             <fa-icon [icon]="faCircleExclamation"></fa-icon>
           </small>
         </div>
-
+        <div class="input_section">
+          <label for="userImage">Imagem do Usuário</label>
+          <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+        </div>
       </section>
 
       <input

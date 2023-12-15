@@ -14,8 +14,8 @@ export class UserService {
     private http: HttpClient,
   ) { }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(`${this.apiURL}/user`, user)
+  createUser(userData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiURL}/user`, userData)
   }
 
   userLogin(email: string, password: string): Observable<User> {
