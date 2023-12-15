@@ -4,6 +4,7 @@ import { IconDefinition, faSignOutAlt, faUser } from '@fortawesome/free-solid-sv
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/models/User.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-header',
@@ -15,6 +16,7 @@ export class HeaderComponent {
   faLogout: IconDefinition = faSignOutAlt;
   isSign = false;
   user!: User;
+  baseUrl = environment.baseApiUrl
 
   constructor(
     private router: Router,

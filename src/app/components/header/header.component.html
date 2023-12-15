@@ -2,7 +2,10 @@
   <a routerLink="/home">IFconecta.</a>
   <ng-container *ngIf="isSign; else loginButton">
     <div class="user-info" *ngIf="user">
-      <fa-icon [icon]="faUser"></fa-icon>
+      <img *ngIf="user.userImage; else defaultImage" [src]="baseUrl + '/user/images/' + user.userImage" alt="User Image" class="user-image">
+      <ng-template #defaultImage>
+        <fa-icon [icon]="faUser" class="default-user-icon"></fa-icon>
+      </ng-template>
       <span class="p-3 has-text-white">{{ user.name }}</span>
       <button (click)="logout()" class="button-style">
         <fa-icon [icon]="faLogout"></fa-icon>

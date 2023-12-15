@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component , OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import {
   IconDefinition,
@@ -9,19 +9,16 @@ import {
   faEye,
   faCalendarPlus,
   faComments,
-  faCheck,
   faCircleExclamation,
 } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 
 import { Observable } from 'rxjs';
-import { Comment } from 'src/app/models/Comment.model';
 import { Post } from 'src/app/models/Post.model';
 import { CommentsService } from 'src/app/services/comment/comments.service';
 import { MessagerService } from 'src/app/services/messager/messager.service';
 import { PostService } from 'src/app/services/post/post.service';
 import { environment } from 'src/environments/environment.development';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-page',

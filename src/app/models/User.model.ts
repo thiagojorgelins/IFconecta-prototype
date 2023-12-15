@@ -1,6 +1,7 @@
 export interface User {
   token: string
-  id: number;
-  name: string;
-  email: string;
+  id: number
+  name: string
+  email: string
+  userImage: string
 }
