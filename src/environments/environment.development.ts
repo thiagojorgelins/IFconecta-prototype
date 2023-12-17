@@ -1,3 +1,3 @@
 export const environment = {
-  baseApiUrl: 'http://127.0.0.1:3000',
+  baseApiUrl: 'http://20.226.34.135:3000',
 };
