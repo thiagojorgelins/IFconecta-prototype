@@ -35,4 +35,8 @@ export class PostService {
     const params = new HttpParams().set('filters', query);
     return this.http.get<Array<Post>>(`${this.apiURL}/post/search/${query}`, { params });
   }
+
+  removePost(id: number): Observable<Post>{
+    return this.http.delete<Post>(`${this.apiURL}/post/${id}`)
+  }
 }

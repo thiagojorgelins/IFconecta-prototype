@@ -35,6 +35,9 @@
             <fa-icon [icon]="faCalendarPlus" />
             <span>Criado {{ post.createdAt | date : "dd/MM/YYYY" }}</span>
           </div>
+          <button type="button" *ngIf="hasPermitionToRemove" class="post_date" (click)="deletePost()">
+            <fa-icon [icon]="faTrash"/>
+          </button>
         </div>
       </div>
     </section>

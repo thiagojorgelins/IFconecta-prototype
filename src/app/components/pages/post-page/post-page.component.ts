@@ -1,7 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component , OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import {
   IconDefinition,
@@ -9,11 +9,14 @@ import {
   faCalendarPlus,
   faComments,
   faCircleExclamation,
+  faTrash,
 } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Post } from 'src/app/models/Post.model';
+import { User } from 'src/app/models/User.model';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { CommentsService } from 'src/app/services/comment/comments.service';
 import { MessagerService } from 'src/app/services/messager/messager.service';
 import { PostService } from 'src/app/services/post/post.service';
@@ -31,10 +34,13 @@ export class PostPageComponent implements OnInit {
   isLoading: Boolean = false;
   isSign = false;
   commentForm!: FormGroup;
-  
+  user!: User
+  hasPermitionToRemove = false
+
   faUser: IconDefinition = faUser;
   faCalendarPlus: IconDefinition = faCalendarPlus;
   faComments: IconDefinition = faComments;
+  faTrash: IconDefinition = faTrash
 
   constructor(
     private postService: PostService,
@@ -43,9 +49,12 @@ export class PostPageComponent implements OnInit {
     private commentService: CommentsService,
     private messageService: MessagerService,
     private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
+    this.fetchUser() 
     this.userLogged()
     setTimeout(() => {
       this.fetchPost();
@@ -65,6 +74,14 @@ export class PostPageComponent implements OnInit {
     if (token) {
       this.isSign = true;
     }
+  }
+
+  fetchUser() {
+    this.authService.currentUser().subscribe(
+      user => {
+        this.user = user;
+      }
+    );
   }
 
   submit() {
@@ -106,7 +123,39 @@ export class PostPageComponent implements OnInit {
 
   fetchPost() {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.post$ = this.postService.getPost(id);
+    this.post$ = this.postService.getPost(id).pipe(
+      tap((response)=>{
+        console.log(response)
+        console.log(this.user)
+        if(this.user.id === response.authorId){
+          this.hasPermitionToRemove = true
+        }
+      })
+    )
   }
 
+  deletePost(){
+    const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
+    this.postService.removePost(id).subscribe(
+      response => {
+        this.messageService.addAlert({
+          type: 'success',
+          title: 'Sucesso',
+          icon: faTrash,
+          message: 'Post deletado com sucesso',
+          timeout: 2500,
+        });
+        this.router.navigate(['/home'])
+      },
+      error => {
+        this.messageService.addAlert({
+          type: 'danger',
+          title: 'Erro!',
+          icon: faCircleExclamation,
+          message: error.error.message,
+          timeout: 3000,
+        });
+      }
+    );
+  }
 }
