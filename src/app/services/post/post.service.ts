@@ -32,7 +32,7 @@ export class PostService {
   }
 
   searchPosts(query: string): Observable<Array<Post>> {
-    const params = new HttpParams().set('query', query);
+    const params = new HttpParams().set('filters', query);
     return this.http.get<Array<Post>>(`${this.apiURL}/post/search/${query}`, { params });
   }
 }
