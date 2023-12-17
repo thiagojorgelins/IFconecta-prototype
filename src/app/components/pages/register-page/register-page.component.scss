@@ -6,8 +6,25 @@ main {
   justify-content: center;
   min-width: 100vw;
   min-height: 80vh;
-  background-image: linear-gradient(to bottom, $gray, $black);
   padding: 5rem 2rem;
+  overflow-x: hidden;
+  position: relative;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+
+    background: url(https://grainy-gradients.vercel.app/noise.svg) repeat,
+    radial-gradient(circle, $medium-gray 0%, $gray 35%, $black 80%);
+    background-blend-mode: overlay;
+  }
 
   .form_wrapper {
     display: flex;

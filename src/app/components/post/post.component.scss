@@ -1,7 +1,7 @@
 @import 'variables.scss';
 
 .post {
-  background-image: linear-gradient(to top, $gray, $black);
+  background-color: rgb(0 0 0 / .85);
   border-bottom: .4rem solid $light-gray;
   display: flex;
   justify-content: center;
