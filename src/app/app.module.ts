@@ -17,7 +17,6 @@ import { LoginPageComponent } from './components/pages/login-page/login-page.com
 import { RegisterPageComponent } from './components/pages/register-page/register-page.component';
 import { MessagerComponent } from './components/messager/messager.component';
 import { CreatePostComponent } from './components/pages/create-post/create-post.component';
-import { CRUDUsersComponent } from './components/crud-users/crud-users.component';
 import { CreatePostFormComponent } from './components/create-post-form/create-post-form.component'
 
 @NgModule({
@@ -34,7 +33,6 @@ import { CreatePostFormComponent } from './components/create-post-form/create-po
     RegisterPageComponent,
     MessagerComponent,
     CreatePostComponent,
-    CRUDUsersComponent,
     CreatePostFormComponent
   ],
   imports: [
