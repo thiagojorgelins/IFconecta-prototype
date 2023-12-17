@@ -54,12 +54,12 @@ export class PostPageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.fetchUser() 
+    this.fetchUser()
     this.userLogged()
     setTimeout(() => {
       this.fetchPost();
     }, 400);
-    
+
     this.commentForm = new FormGroup({
       content: new FormControl('', [Validators.required])
     })
@@ -93,15 +93,15 @@ export class PostPageComponent implements OnInit {
 
   createComment() {
     if (this.commentForm.invalid) return;
-  
+
     const commentData = { ...this.commentForm.value };
     const postId = Number(this.route.snapshot.paramMap.get('id'));
-  
+
     const token = this.cookieService.get('token');
     const headers = new HttpHeaders({
       Authorization: `Bearer ${token}`
     });
-  
+
     this.commentService.createComment(postId, commentData , headers)
     .subscribe(
       response => {
@@ -125,10 +125,10 @@ export class PostPageComponent implements OnInit {
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.post$ = this.postService.getPost(id).pipe(
       tap((response)=>{
-        console.log(response)
-        console.log(this.user)
-        if(this.user.id === response.authorId){
-          this.hasPermitionToRemove = true
+        if(this.isSign){
+          if(this.user.id === response.authorId){
+            this.hasPermitionToRemove = true
+          }
         }
       })
     )
