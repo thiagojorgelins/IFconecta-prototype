@@ -159,7 +159,7 @@ export class RegisterPageComponent implements OnInit {
           type: 'danger',
           title: 'Erro!',
           icon: faCircleExclamation,
-          message: 'Erro ao tentar se registrar!',
+          message: error.error.message,
           timeout: 3000,
         });
       }
