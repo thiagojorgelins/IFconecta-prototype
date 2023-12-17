@@ -52,13 +52,12 @@ main {
       input[type="search"] {
         font-size: 1.2rem;
         padding: .6rem 1.2rem;
-        border-radius: .4rem 0 0 .4rem;
+        border-radius: .4rem;
         background-color: $black;
         border: .1em solid $white;
-        border-right: none;
         outline: none;
         color: $white;
-        min-width: 80%;
+        min-width: 100%;
         height: 100%;
 
         @media (max-width: 1200px) {
@@ -70,23 +69,6 @@ main {
           opacity: .6;
           font-style: italic;
           font-weight: 500;
-        }
-      }
-
-      #searchButton {
-        border-radius: 0 .4rem .4rem 0;
-        height: 100%;
-        width: 20%;
-        font-size: 1.2rem;
-        padding: .6rem 1.2rem;
-        border: .1em solid $white;
-        border-left: none;
-        background-color: $black;
-        color: $white;
-        cursor: pointer;
-
-        @media (max-width: 1200px) {
-          font-size: .9rem;
         }
       }
     }

@@ -10,9 +10,6 @@
     </div>
     <div class="search_div">
       <input type="search" placeholder="Pesquise aqui..." [(ngModel)]="searchQuery" (input)="searchPosts()">
-      <button id="searchButton">
-        <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
-      </button>
     </div>
     <button id="createButton" class="button" (click)="redirectCreatePost()">
       <span>Criar</span>

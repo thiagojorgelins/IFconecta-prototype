@@ -6,7 +6,6 @@ import { ActivatedRoute } from '@angular/router';
 import {
   IconDefinition,
   faUser,
-  faEye,
   faCalendarPlus,
   faComments,
   faCircleExclamation,
@@ -34,7 +33,6 @@ export class PostPageComponent implements OnInit {
   commentForm!: FormGroup;
   
   faUser: IconDefinition = faUser;
-  faEye: IconDefinition = faEye;
   faCalendarPlus: IconDefinition = faCalendarPlus;
   faComments: IconDefinition = faComments;
 
