@@ -35,7 +35,7 @@
             <fa-icon [icon]="faCalendarPlus" />
             <span>Criado {{ post.createdAt | date : "dd/MM/YYYY" }}</span>
           </div>
-          <button type="button" *ngIf="hasPermitionToRemove" class="post_date" (click)="deletePost()">
+          <button type="button" *ngIf="hasPermitionToRemove" class="post_date" (click)="deletePostConfirmation()">
             <fa-icon [icon]="faTrash"/>
           </button>
         </div>
@@ -63,8 +63,11 @@
       <div *ngFor="let comment of post.comments" class="comment">
         <div class="comment_info">
           <span class="comment_user">
-            <fa-icon [icon]="faUser" />
-            {{ comment.authorName }}
+            <img *ngIf="comment.author.userImage; else defaultImage" [src]="baseUrl + '/user/images/' + comment.author.userImage" alt="User Image" class="user-image">
+            {{ comment.author.name }}
+            <ng-template #defaultImage>
+              <fa-icon [icon]="faUser" class="default-user-icon"></fa-icon>
+            </ng-template>
           </span>
           <span class="comment_date">
             <fa-icon [icon]="faCalendarPlus" />

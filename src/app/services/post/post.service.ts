@@ -36,7 +36,7 @@ export class PostService {
     return this.http.get<Array<Post>>(`${this.apiURL}/post/search/${query}`, { params });
   }
 
-  removePost(id: number): Observable<Post>{
-    return this.http.delete<Post>(`${this.apiURL}/post/${id}`)
+  removePost(id: number, headers: HttpHeaders): Observable<Post>{
+    return this.http.delete<Post>(`${this.apiURL}/post/${id}`, {headers})
   }
 }

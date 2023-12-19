@@ -1,8 +1,11 @@
 <div *ngIf="messagerService.alert" class="alert_background">
   <div class="alert alert_{{ messagerService.alert.type }}">
     <div class="actions">
-      <button (click)="close()">
+      <button (click)="close()" class="cancel-btn">
         <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+      <button *ngIf="messagerService.alert.type === 'warning'" (click)="messagerService.confirm()">
+        <fa-icon [icon]="faTrash" />
       </button>
     </div>
     <div class="alert_icon">

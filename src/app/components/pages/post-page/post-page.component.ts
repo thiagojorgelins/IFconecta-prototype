@@ -14,6 +14,7 @@ import {
 import { CookieService } from 'ngx-cookie-service';
 
 import { Observable, tap } from 'rxjs';
+import { Alert } from 'src/app/models/Alert.model';
 import { Post } from 'src/app/models/Post.model';
 import { User } from 'src/app/models/User.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -41,7 +42,7 @@ export class PostPageComponent implements OnInit {
   faCalendarPlus: IconDefinition = faCalendarPlus;
   faComments: IconDefinition = faComments;
   faTrash: IconDefinition = faTrash
-
+  token = this.cookieService.get('token')
   constructor(
     private postService: PostService,
     private activatedRoute: ActivatedRoute,
@@ -70,8 +71,7 @@ export class PostPageComponent implements OnInit {
   }
 
   userLogged() {
-    const token = this.cookieService.get('token')
-    if (token) {
+    if (this.token) {
       this.isSign = true;
     }
   }
@@ -97,9 +97,8 @@ export class PostPageComponent implements OnInit {
     const commentData = { ...this.commentForm.value };
     const postId = Number(this.route.snapshot.paramMap.get('id'));
 
-    const token = this.cookieService.get('token');
     const headers = new HttpHeaders({
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${this.token}`
     });
 
     this.commentService.createComment(postId, commentData , headers)
@@ -133,17 +132,37 @@ export class PostPageComponent implements OnInit {
       })
     )
   }
+  deletePostConfirmation() {
+    const confirmation: Alert = {
+      type: 'warning',
+      title: 'Confirmação',
+      icon: faCircleExclamation,
+      message: 'Tem certeza que deseja excluir este post?',
+    };
+  
+    this.messageService.addAlert(confirmation);
+  
+    const confirmationSubscription = this.messageService.alertObservable().subscribe((confirmed) => {
+      if (confirmed) {
+        this.deletePost();
+      }
+      confirmationSubscription.unsubscribe();
+    });
+  }
 
   deletePost(){
     const id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
-    this.postService.removePost(id).subscribe(
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${this.token}`
+    });
+    this.postService.removePost(id, headers).subscribe(
       response => {
         this.messageService.addAlert({
           type: 'success',
           title: 'Sucesso',
           icon: faTrash,
           message: 'Post deletado com sucesso',
-          timeout: 2500,
+          timeout: 2000,
         });
         this.router.navigate(['/home'])
       },

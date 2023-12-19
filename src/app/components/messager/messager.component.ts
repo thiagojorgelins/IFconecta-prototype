@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IconDefinition, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faXmark, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { MessagerService } from 'src/app/services/messager/messager.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { MessagerService } from 'src/app/services/messager/messager.service';
 })
 export class MessagerComponent implements OnInit {
   faXmark: IconDefinition = faXmark;
-
+  faTrash: IconDefinition = faTrash
   constructor(public messagerService: MessagerService) { }
 
   ngOnInit(): void {
