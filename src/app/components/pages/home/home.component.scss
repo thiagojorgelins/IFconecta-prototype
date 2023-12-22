@@ -40,6 +40,14 @@ main {
       padding: 0 1rem;
     }
 
+    #select-field {
+      transition: all 400ms;
+      &:hover {
+        box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
+                    0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
+  }
+    }
+
     .select {
       > select {
         transition: all 400ms !important;
@@ -137,6 +145,7 @@ main {
         box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
                     0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
         color: $white;
+        border: 1px solid $white;
       }
     }
 

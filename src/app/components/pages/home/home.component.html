@@ -1,6 +1,6 @@
 <main>
   <section class="actions_section">
-    <div class="control has-icons-left">
+    <div class="control has-icons-left" id="select-field">
       <div class="select">
         <select class="has-text-weight-bold" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
           <option value="" class="has-text-weight-bold">CATEGORIA</option>
@@ -41,7 +41,7 @@
       </div>
       <div *ngIf="posts.length === 0" class="empty_posts">
         <h1 class="has-text-weight-bold">
-          Nenhuma postagem no momento :(
+          Nenhuma postagem  :(
         </h1>
       </div>
     </div>
