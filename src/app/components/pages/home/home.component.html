@@ -22,8 +22,8 @@
       <input type="search" placeholder="Pesquise aqui..." [(ngModel)]="searchQuery" (input)="searchPosts()">
     </div>
     <button id="createButton" class="button" (click)="redirectCreatePost()">
-      <span>Criar</span>
-      <fa-icon [icon]="faSquarePlus"></fa-icon>
+      <span class="mr-2">Criar</span>
+      <fa-icon [icon]="faSquarePlus" [animation]="'beat'"></fa-icon>
     </button>
   </section>
   <section class="posts mt-2">
@@ -40,7 +40,9 @@
         <app-post [post]="post"></app-post>
       </div>
       <div *ngIf="posts.length === 0" class="empty_posts">
-        <h1>Nenhuma postagem no momento :(</h1>
+        <h1 class="has-text-weight-bold">
+          Nenhuma postagem no momento :(
+        </h1>
       </div>
     </div>
   </section>
