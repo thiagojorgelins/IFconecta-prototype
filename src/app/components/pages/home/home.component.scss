@@ -40,6 +40,28 @@ main {
       padding: 0 1rem;
     }
 
+    .select {
+      > select {
+        transition: all 400ms !important;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+        }
+
+        &:hover icon > fa-icon {
+          color: $white;
+        }
+
+        > option, .category_option {
+          font-family: monospace;
+          background-color: rgba(20, 20, 20, 0.738) !important;
+          color: $white;
+          transition: all 400ms !important;
+        }
+      }
+    }
+
     .button {
       display: flex;
       align-items: center;

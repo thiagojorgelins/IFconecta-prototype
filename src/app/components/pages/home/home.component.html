@@ -1,12 +1,22 @@
 <main>
   <section class="actions_section">
-    <div class="select">
-      <select class="has-text-weight-bold" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
-        <option value="" class="has-text-weight-bold">Filtrar por categoria</option>
-        <option *ngFor="let category of categories" [value]="category">
-          {{ category | categoryTranslate }}
-        </option>
-      </select>
+    <div class="control has-icons-left">
+      <div class="select">
+        <select class="has-text-weight-bold" [(ngModel)]="selectedCategory" (change)="onCategoryChange()">
+          <option value="" class="has-text-weight-bold">CATEGORIA</option>
+          <option
+            *ngFor="let category of categories"
+            [value]="category"
+            class="category_option has-text-weight-bold"
+            [style]="{ 'color': category | categoryColor }"
+          >
+            {{ category | categoryTranslate }}
+          </option>
+        </select>
+      </div>
+      <span class="icon is-small is-left">
+        <fa-icon [icon]="faFilter" />
+      </span>
     </div>
     <div class="search_div">
       <input type="search" placeholder="Pesquise aqui..." [(ngModel)]="searchQuery" (input)="searchPosts()">
