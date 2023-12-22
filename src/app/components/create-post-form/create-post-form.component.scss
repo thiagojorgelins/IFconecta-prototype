@@ -1,0 +1,109 @@
+@import 'variables.scss';
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+label > h2 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: $white;
+}
+
+label {
+  display: flex;
+  gap: .5rem;
+
+  > fa-icon {
+    color: $white;
+  }
+}
+
+input, textarea {
+  box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .8);
+  width: 100%;
+  background-color: rgb(0 0 0 / .45);
+  font-weight: 600;
+  color: $white;
+
+  &::placeholder {
+    color: $medium-gray;
+  }
+}
+
+.select {
+  > select {
+    transition: all 400ms !important;
+    background-color: rgb(0 0 0 / .45);
+
+    &:hover {
+      color: $white;
+    }
+
+    &:hover icon > fa-icon {
+      color: $white;
+    }
+
+    > option, .category_option {
+      background-color: rgba(20, 20, 20, 0.738) !important;
+      color: $white;
+      transition: all 400ms !important;
+    }
+  }
+}
+
+.small-options {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.4rem;
+}
+
+#file-js-example, #select-field {
+  width: fit-content;
+
+  transition: all 400ms;
+  &:hover {
+    box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
+                0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
+  }
+}
+
+.file-cta, .file-name {
+  background-color: rgb(0 0 0 / .45);
+
+  &:hover {
+    background-color: rgb(0 0 0 / .85);
+  }
+
+  &:hover .file {
+    color: $white;
+  }
+
+}
+
+.file-icon, .file-label {
+  color: $white;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="submit"] {
+  background-color: $white;
+  color: $black;
+  transition: all 400ms;
+  width: 50%;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
+                0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
+  }
+}

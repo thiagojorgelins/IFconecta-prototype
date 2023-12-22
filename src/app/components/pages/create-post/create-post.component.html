@@ -1,4 +1,11 @@
-<app-create-post-form 
-  [btnSubmit]="btnSubmit"
-  (onSubmit)="createPost($event)">
-</app-create-post-form>
+<main>
+  <h1
+    class="has-text-white has-text-weight-bold"
+  >
+    Crie sua postagem!
+  </h1>
+  <app-create-post-form
+    [btnSubmit]="btnSubmit"
+    (onSubmit)="createPost($event)">
+  </app-create-post-form>
+</main>
