@@ -47,9 +47,9 @@
 
     <section *ngIf="isSign" class="post_comments">
       <form (ngSubmit)="submit()" [formGroup]="commentForm" #formDir="ngForm" class="create_comment">
-        <textarea class="textarea" placeholder="Escreva um comentário" formControlName="content"></textarea>
-        <div *ngIf="content?.invalid && content?.touched" class="invalid-feedback">
-          O conteúdo do comentário é obrigatório.
+        <textarea class="textarea comment-content" placeholder="Escreva um comentário" formControlName="content"></textarea>
+        <div *ngIf="content?.invalid && content?.touched" class="form_error mt-3 has-text-weight-bold">
+          <small>O conteúdo do comentário é obrigatório.</small>
         </div>
         <input type="submit" class="button is-fullwidth mt-2" value="Enviar comentário"/>
       </form>

@@ -237,6 +237,32 @@ main {
       align-items: center;
       flex-direction: column;
       width: 100%;
+
+      > .comment-content {
+        box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .8);
+        width: 100%;
+        background-color: rgb(0 0 0 / .45);
+        font-weight: 600;
+        color: $white;
+
+        &::placeholder {
+          color: $medium-gray;
+        }
+      }
+
+      > input[type="submit"] {
+        font-weight: 600;
+        background-color: $white;
+        color: $black;
+        transition: all 400ms;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+          box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
+                      0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
+        }
+      }
     }
 
     .post_comments {
