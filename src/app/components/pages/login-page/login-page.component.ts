@@ -73,6 +73,9 @@ export class LoginPageComponent implements OnInit {
   }
   login() {
     const { email, password } = this.loginForm.value
+    if (!email || !password) {
+      return
+    }
     this.userService.userLogin(email, password).subscribe(
       (response) =>{
         if(response.token){
@@ -88,7 +91,7 @@ export class LoginPageComponent implements OnInit {
           setTimeout(()=>{
             this.router.navigate(['/'])
           }, 500)
-        
+
       }},
       (error) =>{
         if(error.status === 401){

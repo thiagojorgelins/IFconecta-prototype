@@ -7,7 +7,7 @@ import { Post } from 'src/app/models/Post.model';
 import { User } from 'src/app/models/User.model';
 import { CookieService } from 'ngx-cookie-service';
 import { HttpHeaders } from '@angular/common/http';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faCheck } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-create-post',
@@ -15,7 +15,7 @@ import { faCheck } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./create-post.component.scss'],
 })
 export class CreatePostComponent {
-  btnSubmit = 'Criar Post'
+  btnSubmit = 'Criar Postagem'
   user!: User
   userId!: Number
 
@@ -45,7 +45,7 @@ export class CreatePostComponent {
     formData.append('title', post.title)
     formData.append('subtitle', post.subtitle)
     formData.append('content', post.content)
-  
+
     if (post.postImage) {
       formData.append('postImage', post.postImage);
     }

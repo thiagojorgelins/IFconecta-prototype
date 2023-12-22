@@ -1,15 +1,15 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Icon } from '@fortawesome/fontawesome-svg-core';
 import {
   IconDefinition,
-  faRightToBracket,
   faUpload,
-  faBold,
-  faItalic,
-  faList,
-  faCode,
   faCircleExclamation,
-  faCheck
+  faCheck,
+  faFilter,
+  faHighlighter,
+  faClosedCaptioning,
+  faFileLines,
 } from '@fortawesome/free-solid-svg-icons';
 import { Post } from 'src/app/models/Post.model';
 
@@ -20,13 +20,12 @@ import { Post } from 'src/app/models/Post.model';
 })
 export class CreatePostFormComponent implements OnInit {
   faUpload: IconDefinition = faUpload;
-  faBold: IconDefinition = faBold;
-  faItalic: IconDefinition = faItalic;
-  faList: IconDefinition = faList;
-  faCode: IconDefinition = faCode;
   faCircleExclamation: IconDefinition = faCircleExclamation;
-  faRightToBracket: IconDefinition = faRightToBracket;
   faCheckCircle: IconDefinition = faCheck;
+  faFilter: IconDefinition = faFilter;
+  faHighlighter: IconDefinition = faHighlighter;
+  faClosedCaptioning: IconDefinition = faClosedCaptioning;
+  faFileLines: IconDefinition = faFileLines;
 
   @Output() onSubmit = new EventEmitter<Post>();
   @Input() btnSubmit!: string

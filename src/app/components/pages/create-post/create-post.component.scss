@@ -1,10 +1,59 @@
 @import "variables.scss";
 
-form-container {
-  min-height: 70vh;
-}
-label > h2{
-  color: $black;
-  font-size: 1.7rem;
-  font-weight: 500;
+main {
+  min-height: 80vh;
+  width: 100vw;
+  padding: 2rem;
+  overflow-x: hidden;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: .6rem;
+
+  &::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: -1;
+
+    background: url(https://grainy-gradients.vercel.app/noise.svg) repeat,
+    radial-gradient(circle, $medium-gray 0%, $gray 35%, $black 80%);
+    background-blend-mode: overlay;
+  }
+
+  > h1 {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+
+  app-create-post-form {
+    width: 100%;
+    height: 100%;
+
+    padding-inline: 24vw;
+
+    @media (max-width: 1200px ) {
+      padding-inline: 16vw;
+    }
+
+    @media (max-width: 800px ) {
+      padding-inline: 12vw;
+    }
+
+    @media (max-width: 600px ) {
+      padding-inline: 8vw;
+    }
+
+    @media (max-width: 400px ) {
+      padding-inline: 4vw;
+    }
+  }
 }
