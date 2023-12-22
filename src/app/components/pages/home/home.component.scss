@@ -130,5 +130,37 @@ main {
     }
   }
 
+  .empty_posts {
+    width: 100%;
+    min-height: 30vh;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      color: $white;
+      text-align: center;
+    }
+  }
+
+  .loading_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .loading_spinner {
+      margin-top: 8rem;
+      height: 6rem;
+      width: 6rem;
+
+      border: 0.4rem solid $blue;
+      border-top: 0.4rem solid transparent;
+      border-radius: 50%;
+
+      animation: load 1s infinite ease-in-out;
+    }
+  }
 }

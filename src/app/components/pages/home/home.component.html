@@ -17,15 +17,20 @@
     </button>
   </section>
   <section class="posts mt-2">
-    <div *ngIf="!posts$">
-      <h1>Nenhuma Postagem no momento! :(</h1>
-    </div>
-    <div class="columns is-multiline px-6" *ngIf="posts$ | async as posts">
+    <ng-template #loadingTemplate>
+      <div class="loading_wrapper">
+        <span class="loading_spinner"></span>
+      </div>
+    </ng-template>
+    <div class="columns is-multiline px-6" *ngIf="posts$ | async as posts; else loadingTemplate">
       <div
         *ngFor="let post of posts"
         class="column is-half-tablet is-one-third-desktop is-one-quarter-fullhd"
       >
         <app-post [post]="post"></app-post>
+      </div>
+      <div *ngIf="posts.length === 0" class="empty_posts">
+        <h1>Nenhuma postagem no momento :(</h1>
       </div>
     </div>
   </section>
