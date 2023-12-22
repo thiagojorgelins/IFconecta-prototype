@@ -7,17 +7,17 @@ export class CategoryColorPipe implements PipeTransform {
 
   transform(category: string): string {
     const categoryColors: { [key: string]: string } = {
-      technology: '#1324a8',
-      travel: '#943600',
-      gastronomy: '#d1a402',
-      health: '#2bab3c',
+      technology: '#4069ff',
+      travel: '#cc662f',
+      gastronomy: '#fac30c',
+      health: '#26ebb9',
       science: '#3b99d9',
       fashion: '#b11fcf',
-      sports: '#bd6624',
+      sports: '#f56600',
       movies: '#d91f1f',
-      business: '#0d064f',
+      business: '#6254e3',
       culture: '#6eb828',
-      music: '#4e32a8',
+      music: '#d61167',
     }
     const defaultColor = '#595959'
     const color = categoryColors[category]
