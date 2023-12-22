@@ -155,7 +155,20 @@ main {
           gap: 1rem;
           width: 100%;
 
-          .post_date {
+          .delete_btn {
+            cursor: pointer;
+            transition: all 400ms;
+
+            &:hover {
+              background-color: red;
+
+              > fa-icon {
+                color: $white;
+              }
+            }
+          }
+
+          .post_date, .delete_btn {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -164,6 +177,7 @@ main {
             padding: 0.4rem 1rem;
             border-radius: 0.4rem;
             box-shadow: 0 0.4rem 0.8rem rgb(0 0 0 / 0.4);
+            border: none;
 
             > span,
             fa-icon {
@@ -196,7 +210,6 @@ main {
       > p {
         text-align: justify;
         color: $white;
-        font-family: monospace;
         font-weight: 600;
         font-size: 1.2rem;
       }
@@ -295,7 +308,6 @@ main {
             align-items: center;
             color: $black;
             font-weight: 600;
-            font-family: monospace;
             .user-image {
               width: 40px;
               height: 40px;
@@ -316,7 +328,6 @@ main {
 
           > p {
             font-weight: 400;
-            font-family: monospace;
             text-align: justify;
             color: $black;
           }

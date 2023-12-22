@@ -139,9 +139,9 @@ export class PostPageComponent implements OnInit {
       icon: faCircleExclamation,
       message: 'Tem certeza que deseja excluir este post?',
     };
-  
+
     this.messageService.addAlert(confirmation);
-  
+
     const confirmationSubscription = this.messageService.alertObservable().subscribe((confirmed) => {
       if (confirmed) {
         this.deletePost();

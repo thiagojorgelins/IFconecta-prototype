@@ -12,14 +12,14 @@
         <div class="section_top">
           <div class="user_info">
             <fa-icon [icon]="faUser" />
-            <span>{{ post.authorName }}</span>
+            <span class="has-text-weight-bold">{{ post.authorName }}</span>
           </div>
 
           <div
             class="post_category"
             [style.backgroundColor]="post.category | categoryColor"
           >
-            <span>{{ post.category | categoryTranslate }}</span>
+            <span class="has-text-weight-bold">{{ post.category | categoryTranslate }}</span>
           </div>
         </div>
 
@@ -35,7 +35,7 @@
             <fa-icon [icon]="faCalendarPlus" />
             <span>Criado {{ post.createdAt | date : "dd/MM/YYYY" }}</span>
           </div>
-          <button type="button" *ngIf="hasPermitionToRemove" class="post_date" (click)="deletePostConfirmation()">
+          <button type="button" *ngIf="hasPermitionToRemove" class="delete_btn" (click)="deletePostConfirmation()">
             <fa-icon [icon]="faTrash"/>
           </button>
         </div>
