@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { IconDefinition, faSignOutAlt, faUser } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faSignOutAlt, faUser, faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 import { User } from 'src/app/models/User.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -14,10 +14,12 @@ import { environment } from 'src/environments/environment.development';
 export class HeaderComponent {
   faUser: IconDefinition = faUser;
   faLogout: IconDefinition = faSignOutAlt;
+  faSquarePlus: IconDefinition = faSquarePlus;
   isSign = false;
   user!: User;
   baseUrl = environment.baseApiUrl
-
+  showDropdown = false;
+  
   constructor(
     private router: Router,
     private authService: AuthService,
@@ -57,5 +59,9 @@ export class HeaderComponent {
 
   loginRedirect() {
     this.router.navigate(['/login']);
+  }
+
+  toggleDropdown(){
+    this.showDropdown = !this.showDropdown
   }
 }
