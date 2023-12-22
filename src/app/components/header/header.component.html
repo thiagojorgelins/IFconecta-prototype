@@ -1,5 +1,5 @@
 <header>
-  <a routerLink="/home">IFconecta.</a>
+  <a routerLink="/home" class="has-text-weight-bold">IFconecta.</a>
   <ng-container *ngIf="isSign; else loginButton">
     <div class="user-info" *ngIf="user">
       <img *ngIf="user.userImage; else defaultImage" [src]="baseUrl + '/user/images/' + user.userImage" alt="User Image" class="user-image">

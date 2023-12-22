@@ -155,7 +155,20 @@ main {
           gap: 1rem;
           width: 100%;
 
-          .post_date {
+          .delete_btn {
+            cursor: pointer;
+            transition: all 400ms;
+
+            &:hover {
+              background-color: red;
+
+              > fa-icon {
+                color: $white;
+              }
+            }
+          }
+
+          .post_date, .delete_btn {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -164,6 +177,7 @@ main {
             padding: 0.4rem 1rem;
             border-radius: 0.4rem;
             box-shadow: 0 0.4rem 0.8rem rgb(0 0 0 / 0.4);
+            border: none;
 
             > span,
             fa-icon {
@@ -196,7 +210,6 @@ main {
       > p {
         text-align: justify;
         color: $white;
-        font-family: monospace;
         font-weight: 600;
         font-size: 1.2rem;
       }
@@ -224,6 +237,32 @@ main {
       align-items: center;
       flex-direction: column;
       width: 100%;
+
+      > .comment-content {
+        box-shadow: 0 .4rem 1.2rem rgb(0 0 0 / .8);
+        width: 100%;
+        background-color: rgb(0 0 0 / .45);
+        font-weight: 600;
+        color: $white;
+
+        &::placeholder {
+          color: $medium-gray;
+        }
+      }
+
+      > input[type="submit"] {
+        font-weight: 600;
+        background-color: $white;
+        color: $black;
+        transition: all 400ms;
+
+        &:hover {
+          background-color: $black;
+          color: $white;
+          box-shadow: 0 .4rem 1.2rem rgba(24, 117, 187, 0.528),
+                      0 .5rem 1.4rem rgba(24, 67, 187, 0.528);
+        }
+      }
     }
 
     .post_comments {
@@ -295,7 +334,6 @@ main {
             align-items: center;
             color: $black;
             font-weight: 600;
-            font-family: monospace;
             .user-image {
               width: 40px;
               height: 40px;
@@ -316,7 +354,6 @@ main {
 
           > p {
             font-weight: 400;
-            font-family: monospace;
             text-align: justify;
             color: $black;
           }
